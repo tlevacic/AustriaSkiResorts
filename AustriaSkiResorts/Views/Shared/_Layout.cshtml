@@ -17,36 +17,35 @@
     </environment>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">AustriaSkiResorts</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-light shadow py-0 my-0">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Ski resorts |</a>
+
+                <ul class="navbar-nav ml-auto pl-4">
+                    <li class="nav-item active pl-3">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item  pl-3">
+                        <a class="nav-link" asp-area="" asp-controller="resorts" asp-action="Index">Rent</a>
+                    </li>
+                    <li class="nav-item  pl-3">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="About">About</a>
+                    </li>
                 </ul>
+
             </div>
-        </div>
-    </nav>
-
-    <partial name="_CookieConsentPartial" />
-
-    <div class="container body-content">
+        </nav>
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2020 - AustriaSkiResorts</p>
+        <footer class="py-4 bg-dark text-black-50 my-0">
+            <div class="container text-center">
+                <small>Copyright &copy; Ski Resorts</small>
+            </div>
         </footer>
     </div>
+
+    <partial name="_CookieConsentPartial" />
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
