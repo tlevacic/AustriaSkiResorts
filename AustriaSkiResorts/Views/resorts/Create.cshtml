@@ -1,0 +1,78 @@
+﻿@model AustriaSkiResorts.Models.resort
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>resort</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="name" class="control-label"></label>
+                <input asp-for="name" class="form-control" />
+                <span asp-validation-for="name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="country" class="control-label"></label>
+                <input asp-for="country" class="form-control" />
+                <span asp-validation-for="country" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="length" class="control-label"></label>
+                <input asp-for="length" class="form-control" />
+                <span asp-validation-for="length" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="height" class="control-label"></label>
+                <input asp-for="height" class="form-control" />
+                <span asp-validation-for="height" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="price" class="control-label"></label>
+                <input asp-for="price" class="form-control" />
+                <span asp-validation-for="price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="snowRange" class="control-label"></label>
+                <input asp-for="snowRange" class="form-control" />
+                <span asp-validation-for="snowRange" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="shortInfo" class="control-label"></label>
+                <input asp-for="shortInfo" class="form-control" />
+                <span asp-validation-for="shortInfo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="longInfo" class="control-label"></label>
+                <input asp-for="longInfo" class="form-control" />
+                <span asp-validation-for="longInfo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="urlPicture" class="control-label"></label>
+                <input asp-for="urlPicture" class="form-control" />
+                <span asp-validation-for="urlPicture" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="availableNumberOfTermins" class="control-label"></label>
+                <input asp-for="availableNumberOfTermins" class="form-control" />
+                <span asp-validation-for="availableNumberOfTermins" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
