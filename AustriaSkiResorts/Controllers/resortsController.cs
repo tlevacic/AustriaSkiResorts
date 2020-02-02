@@ -9,6 +9,7 @@ using AustriaSkiResorts.Models;
 
 namespace AustriaSkiResorts.Controllers
 {
+   
     public class resortsController : Controller
     {
         private readonly resortContext _context;
@@ -20,7 +21,7 @@ namespace AustriaSkiResorts.Controllers
 
 
 
-        public RedirectToActionResult updateAvailablenumberOfTermins(int Id)
+        public void updateAvailablenumberOfTermins(int Id)
         {
             var newResort = new resort() { id = Id };
             int availableNbr = (from s in _context.resort
@@ -31,13 +32,17 @@ namespace AustriaSkiResorts.Controllers
             _context.Attach(newResort);
             _context.Entry(newResort).Property("availableNumberOfTermins").IsModified = true;
             _context.SaveChanges();
-            return RedirectToAction("successfullyOrder", "resorts");
         }
 
 
-
-        public IActionResult successfullyOrder()
+        [HttpPost]
+        public IActionResult successfullyOrder(String id,String day,String month,String year,String time)
         {
+            updateAvailablenumberOfTermins(int.Parse(id));
+            ViewData["day"] = day;
+            ViewData["month"] = month;
+            ViewData["year"] = year;
+            ViewData["time"] = time;
             return View();
         }
         // GET: resorts
