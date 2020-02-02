@@ -22,22 +22,17 @@ namespace AustriaSkiResorts.Controllers
 
         public RedirectToActionResult updateAvailablenumberOfTermins(int Id)
         {
-            var resort = new resort() { id = Id };
-            resort.availableNumberOfTermins -= 1;
-            _context.Attach(resort);
-            _context.Entry(resort).Property("availableNumberOfTermins").IsModified = true;
+            var newResort = new resort() { id = Id };
+            int availableNbr = (from s in _context.resort
+                      where s.id == Id
+                      select s.availableNumberOfTermins).First();
+
+            newResort.availableNumberOfTermins = --availableNbr;
+            _context.Attach(newResort);
+            _context.Entry(newResort).Property("availableNumberOfTermins").IsModified = true;
             _context.SaveChanges();
             return RedirectToAction("Index", "resorts");
         }
-
-
-
-
-
-
-
-
-
 
 
 
