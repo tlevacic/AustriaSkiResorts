@@ -4,75 +4,150 @@
     ViewData["Title"] = "Details";
 }
 
-<h2>Details</h2>
-
-<div>
-    <h4>resort</h4>
+<div class="mx-auto" style="width:90%;">
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.name)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.name)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.country)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.country)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.length)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.length)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.height)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.height)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.price)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.price)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.snowRange)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.snowRange)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.shortInfo)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.shortInfo)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.longInfo)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.longInfo)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.urlPicture)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.urlPicture)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.availableNumberOfTermins)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.availableNumberOfTermins)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <div>
+        <h1 style="font-size:50px;">@Html.DisplayFor(model => model.name)</h1>
+    </div>
+    <div>
+        <h3> @Html.DisplayFor(model => model.shortInfo)</h3>
+    </div>
+    <hr />
+    <div class="w-100 mt4 py4" style="margin-bottom:70px; background-color:#d4ebf2;">
+        <div class="display-1 text-center pt4 mb4">What @Html.DisplayFor(model => model.name) can give you?</div>
+        <div class="flex flex-wrap">
+            <div class="col-4 flex justify-center">
+                <div class="col-4" style="height:50px;">
+                    <img style="width:100%" ; height: 100%;" src="https://cdn2.iconfinder.com/data/icons/ski-glyph-silhouettes/300/14571090Untitled-3-512.png" />
+                </div>
+                <h3>Length @Html.DisplayFor(model => model.length)km</h3>
+            </div>
+            <div class="col-4 flex justify-center">
+                <div class="col-4" style="height:50px;">
+                    <img style="width:100%" ; height: 100%;" src="https://cdn0.iconfinder.com/data/icons/heaven/500/olympus-512.png" />
+                </div>
+                <h3>Height @Html.DisplayFor(model => model.height)m</h3>
+            </div>
+            <div class="col-4 flex justify-center flex-row">
+                <div class="col-4" style="height:50px;">
+                    <img style="width:100%" ; height: 100%;" src="https://cdn0.iconfinder.com/data/icons/snowflakes-snow/617/Snowflakes_snow-10-512.png" />
+                </div>
+                <div class=" flex justify-center flex-column">
+                    <h3>Snow Range</h3>
+                    <p>@Html.DisplayFor(model => model.snowRange)m</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <h3>@Html.DisplayFor(model => model.longInfo)</h3>
+    <hr />
+    <div class="flex flex-wrap">
+        <div class="col-6">
+            <dl class="dl-horizontal">
+                <dt style="text-align:left;">
+                    @Html.DisplayNameFor(model => model.name)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.name)
+                </dd>
+                <dt style="text-align:left;">
+                    @Html.DisplayNameFor(model => model.country)
+                    </dtstyle="text-align:left;">
+                <dd>
+                    @Html.DisplayFor(model => model.country)
+                </dd>
+                <dt style="text-align:left;">
+                    @Html.DisplayNameFor(model => model.length)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.length)m
+                </dd>
+                <dt style="text-align:left;">
+                    @Html.DisplayNameFor(model => model.height)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.height)m
+                </dd>
+                <dt style="text-align:left;">
+                    @Html.DisplayNameFor(model => model.price)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.price)$
+                </dd>
+                <dt style="text-align:left;">
+                    @Html.DisplayNameFor(model => model.snowRange)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.snowRange)m
+                </dd>
+
+
+            </dl>
+        </div>
+        <div class="col-6">
+            <h3>Available number of place's: @Html.DisplayFor(model => model.availableNumberOfTermins)</h3>
+            <div class="flex justify-end col-12 mt4">
+                <a><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#giveRoom">Get Termin!</button></a>
+
+                <div class="modal fade" id="giveRoom" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Order room</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="day">Day</label>
+                                    <select class="form-control" id="day">
+                                        @{
+                                            for (int i = 1; i <= 30; i++)
+                                            {
+                                                <option>@i</option>
+                                            }
+                                        }
+                                    </select>
+                                    <label for="month">Month</label>
+                                    <select class="form-control" id="month">
+                                        @{
+                                            for (int i = 1; i <= 12; i++)
+                                            {
+                                                <option>@i</option>
+                                            }
+                                        }
+                                    </select>
+                                    <label for="year">Year</label>
+                                    <select class="form-control" id="year">
+                                        @{
+                                            for (int i = 2020; i < 2025; i++)
+                                            {
+                                                <option>@i</option>
+                                            }
+                                        }
+                                    </select>
+                                    <label for="time">Time:</label>
+                                    <select class="form-control" id="time">
+                                        @{
+                                            for (int i = 0; i < 24; i++)
+                                            {
+                                                <option>@i:00 - @(i + 1):00</option>
+                                            }
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <input type="button" class="btn btn-info" title="Delete" value="Get Termin" onclick="location.href='@Url.Action("updateAvailablenumberOfTermins", "resorts", new { id = ViewContext.RouteData.Values["id"] })'" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </div>

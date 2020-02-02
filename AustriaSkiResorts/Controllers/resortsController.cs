@@ -18,6 +18,30 @@ namespace AustriaSkiResorts.Controllers
             _context = context;
         }
 
+
+
+        public RedirectToActionResult updateAvailablenumberOfTermins(int Id)
+        {
+            var resort = new resort() { id = Id };
+            resort.availableNumberOfTermins -= 1;
+            _context.Attach(resort);
+            _context.Entry(resort).Property("availableNumberOfTermins").IsModified = true;
+            _context.SaveChanges();
+            return RedirectToAction("Index", "resorts");
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
         // GET: resorts
         public async Task<IActionResult> Index()
         {
