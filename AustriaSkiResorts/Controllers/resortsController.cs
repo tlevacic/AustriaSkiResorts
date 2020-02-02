@@ -31,12 +31,15 @@ namespace AustriaSkiResorts.Controllers
             _context.Attach(newResort);
             _context.Entry(newResort).Property("availableNumberOfTermins").IsModified = true;
             _context.SaveChanges();
-            return RedirectToAction("Index", "resorts");
+            return RedirectToAction("successfullyOrder", "resorts");
         }
 
 
 
-
+        public IActionResult successfullyOrder()
+        {
+            return View();
+        }
         // GET: resorts
         public async Task<IActionResult> Index()
         {
