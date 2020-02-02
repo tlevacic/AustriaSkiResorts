@@ -1,37 +1,35 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
-for details on configuring this project to bundle and minify static web assets. */
+﻿@import url('https://fonts.googleapis.com/css?family=Courgette&display=swap');
+
 body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Courgette', cursive;
 }
 
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-/* Carousel */
-.carousel-caption p {
-    font-size: 20px;
-    line-height: 1.4;
-}
-
-/* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"] {
+/*HOME PAGE*/
+header {
+    position: relative;
+    height: 150vh;
+    min-height: 25rem;
     width: 100%;
+    overflow: hidden;
 }
 
-/* QR code generator */
-#qrCode {
-    margin: 15px;
-}
-
-/* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
-    /* Hide captions */
-    .carousel-caption {
-        display: none;
+    header video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: 0;
+        transform: translateX(-50%) translateY(-50%);
     }
+
+.main {
+    position: absolute;
+    top: 50px;
+    opacity: 0.7;
 }
+/*HOME PAGE OVER*/
