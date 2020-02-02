@@ -3,87 +3,49 @@
 @{
     ViewData["Title"] = "Index";
 }
+<div class="w-100 mt4 py4" style="margin-bottom:70px;">
+    <div class="display-1 text-center pt4">Where to go in Austria</div>
+    <div class="flex flex-wrap justify-center mt4 px4">
+        <div class="col-6" style="font-family: 'Poppins', sans-serif; font-size:25px">
+            <p>Best family ski resorts</p>
+            <p style="font-size:18px">
+                Both Scheffau and Galtür have excellent ski school-run kids clubs, while Bad Gastein and Bad Hofgastein have a range of runs to keep everyone happy.
+            </p>
 
-<h2>Index</h2>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.country)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.length)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.height)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.snowRange)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.shortInfo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.longInfo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.urlPicture)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.availableNumberOfTermins)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.country)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.length)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.height)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.snowRange)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.shortInfo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.longInfo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.urlPicture)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.availableNumberOfTermins)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+            <p>Best après ski resorts</p>
+            <p style="font-size:18px">
+                St Anton is famous for the lively Mooserwirt or Krazy Kanguruh, while Ischgl offers more high-end nightlife. Mayrhofen and Sölden also deserve a mention.
+            </p>
+        </div>
+        <div class="col-6" style="font-family: 'Poppins', sans-serif; font-size:25px">
+            <p>Best beginner ski resorts</p>
+            <p style="font-size:18px">
+                Rauris’ excellent ski school and intimate ski area are perfect to learn in, Kaprun’s lifts access plenty of easy terrain and Seefeld has lots to do when legs get tired.
+            </p>
+            <p>Best intermediate ski resorts</p>
+            <p style="font-size:18px">
+                Three-quarters of Schladming’s runs are red, Ellmau’s slopes are helpfully tree-lined and Obergurgl, as the highest ski resort in Austria.
+            </p>
+        </div>
+    </div>
+</div>
+<div class="display-1 text-center pt4 mb4 pb4">Resorts in Austria</div>
+<div class="row mx-auto" style="width:80%">
+    <!-- cards-->
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-5 mb-4 mx-auto">
+            <div class="border">
+                <img class="img-fluid" src=@Html.DisplayFor(modelItem => item.urlPicture)>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a href="#">@Html.DisplayFor(modelItem => item.name)</a>
+                    </h4>
+                    <p class="card-text">From $@Html.DisplayFor(modelItem => item.price) per person</p>
+                    <p class="card-text">@Html.DisplayFor(modelItem => item.shortInfo)</p>
+                    <a class="btn btn-primary btn-sm" role="button" asp-action="Details" asp-route-id="@item.id">Continue reading</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
