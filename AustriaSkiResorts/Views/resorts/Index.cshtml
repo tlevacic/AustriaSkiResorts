@@ -5,7 +5,7 @@
 }
 <div class="w-100 mt4 py4" style="margin-bottom:70px;">
     <div class="display-1 text-center pt4">Where to go in Austria</div>
-    <div class="flex flex-wrap justify-center mt4 px4">
+    <div class="flex flex-wrap justify-center mt4 px4" style="font-family:Cambria, Cochin, Georgia, Times, Times New Roman, serif;"">
         <div class="col-6" style="font-family: 'Poppins', sans-serif; font-size:25px">
             <p>Best family ski resorts</p>
             <p style="font-size:18px">
@@ -29,25 +29,45 @@
         </div>
     </div>
 </div>
-<div class="display-1 text-center pt4 mb4 pb4">Resorts in Austria</div>
-<div class="row mx-auto" style="width:80%">
-    <!-- cards-->
-    @foreach (var item in Model)
-    {
-        if (item.availableNumberOfTermins > 0) { 
-        <div class="col-lg-5 mb-4 mx-auto">
-            <div class="border">
-                <img class="img-fluid" src=@Html.DisplayFor(modelItem => item.urlPicture)>
-                <div class="card-body">
-                    <h4 class="card-title">
-                        <a href="#">@Html.DisplayFor(modelItem => item.name)</a>
-                    </h4>
-                    <p class="card-text">From $@Html.DisplayFor(modelItem => item.price) per person</p>
-                    <p class="card-text">@Html.DisplayFor(modelItem => item.shortInfo)</p>
-                    <a class="btn btn-primary btn-sm" role="button" asp-action="Details" asp-route-id="@item.id">Continue reading</a>
-                </div>
-            </div>
+<div class="display-1 text-center pt4 mb4 pb4" style="font-family:Cambria, Cochin, Georgia, Times, Times New Roman, serif;">Resorts in Austria</div>
+
+<form asp-action="Index" style="font-family:Cambria, Cochin, Georgia, Times, Times New Roman, serif;">
+    <div class="form-group col-6 mx-auto mb4 flex flex-wrap flex-row">
+        <div class="col-8">
+            <label for="sort">Sort by: </label>
+            <select class="form-control" id="day" name="sort">
+                <option>Sort by: --</option>
+                <option>Price - low to high</option>
+                <option>Price - high to low</option>
+                <option>Alphabetically: A-Z</option>
+                <option>Alphabetically: Z-A</option>
+            </select>
         </div>
+        <div class="col-3" style="margin-top:25px;">
+            <input type="submit" class="btn btn-info" title="Sort" value="Sort" />
+        </div>
+    </div>
+</form>
+
+    <div class="row mx-auto mt4" style="width:80%; font-family:Cambria, Cochin, Georgia, Times, Times New Roman, serif;">
+        <!-- cards-->
+        @foreach (var item in Model)
+        {
+            if (item.availableNumberOfTermins > 0)
+            {
+                <div class="col-lg-5 mb-4 mx-auto">
+                    <div class="border">
+                        <img class="img-fluid" src=@Html.DisplayFor(modelItem => item.urlPicture)>
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <a href="#">@Html.DisplayFor(modelItem => item.name)</a>
+                            </h4>
+                            <p class="card-text">From $@Html.DisplayFor(modelItem => item.price) per person</p>
+                            <p class="card-text">@Html.DisplayFor(modelItem => item.shortInfo)</p>
+                            <a class="btn btn-primary btn-sm" role="button" asp-action="Details" asp-route-id="@item.id">Continue reading</a>
+                        </div>
+                    </div>
+                </div>
+            }
         }
-    }
-</div>
+    </div>

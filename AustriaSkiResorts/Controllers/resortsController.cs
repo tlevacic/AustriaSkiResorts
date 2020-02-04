@@ -46,9 +46,23 @@ namespace AustriaSkiResorts.Controllers
             return View();
         }
         // GET: resorts
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(String sort)
         {
-            return View(await _context.resort.ToListAsync());
+            if (sort != null)
+            {
+                var input = sort.ToString();
+
+              if(input.Equals("Price - low to high"))
+                return View(await _context.resort.OrderBy(a => a.price).ToListAsync());
+            
+              if(input.Equals("Alphabetically: A-Z"))
+                return View(await _context.resort.OrderBy(a => a.name).ToListAsync());
+
+                if (input.Equals("Alphabetically: Z-A"))
+                    return View(await _context.resort.OrderByDescending(a => a.name).ToListAsync());
+            }
+
+            return View(await _context.resort.OrderByDescending(a => a.price).ToListAsync());
         }
 
         // GET: resorts/Details/5
