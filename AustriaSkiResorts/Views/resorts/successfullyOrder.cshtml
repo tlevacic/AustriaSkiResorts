@@ -3,9 +3,9 @@
 
 }
 
-<div style="height:75vh;">
+<div style="height:75vh; ">
     <div class="pl4 mt4" style="font-size:35px; font-family:Cambria, Cochin, Georgia, Times, Times New Roman, serif;">
-        <h1 style="color:red;">Successfully ordered</h1>
+        <h1>Successfully ordered</h1>
     </div>
     <hr style="border:1px solid gray;" />
 
@@ -15,21 +15,18 @@
                 Thank you for using are service.
                 Please check information once again.
             </p>
-            <div style="background-color:grey;">
+            <div style="font-size:20px;">
                 <p>Day: @ViewData["day"]</p>
                 <p>Month: @ViewData["month"]</p>
                 <p>Time: @ViewData["year"]</p>
                 <p>Year: @ViewData["time"]</p>
 
             </div>
+            <a class="btn btn-info" href="/resorts/Index" style="text-decoration:none; color:white; width:200px;">Go Back</a>
         </div>
         <div class="col-6" style="padding:40px 40px">
-            <p>You can contact as with: </p>
-            <p style="color:red;">Telephone: 00800 400 200 00*</p>
-            <p style="color:red;">
-                info@austria.info
-            </p>
-            <p>*toll-free; calls from mobile networks may incur charges</p>
+            <textarea class="form-control"rows="5" placeholder="Enter your message here: "></textarea>
+            <input type="button" class="btn btn-info" value="Send" style="float:right; margin-top:10px;"/>
         </div>
     </div>
 </div>
