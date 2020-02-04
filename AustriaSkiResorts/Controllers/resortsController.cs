@@ -19,7 +19,7 @@ namespace AustriaSkiResorts.Controllers
             _context = context;
         }
 
-
+       
 
         public void updateAvailablenumberOfTermins(int Id)
         {

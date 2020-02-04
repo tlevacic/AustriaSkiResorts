@@ -10,6 +10,12 @@ namespace AustriaSkiResorts.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly resortContext _context;
+
+        public HomeController(resortContext context)
+        {
+            _context = context;
+        }
         public IActionResult Index()
         {
             return View();
@@ -18,9 +24,24 @@ namespace AustriaSkiResorts.Controllers
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
+            ViewData["avg"] = getAvgPrice();
+            ViewData["total"] = getTotalResorts();
 
             return View();
         }
+        public int getTotalResorts()
+        {
+            var total = (from item in _context.resort
+                         select item.id).Count();
+            return total;
+        }
+        public double getAvgPrice()
+        {
+            var s = (from item in _context.resort
+                     select item.price).Sum();
+            return s / getTotalResorts();
+        }
+
 
         public IActionResult Contact()
         {
