@@ -5,7 +5,7 @@
 }
 <div class="w-100 mt4 py4" style="margin-bottom:70px;">
     <div class="display-1 text-center pt4">Where to go in Austria</div>
-    <div class="flex flex-wrap justify-center mt4 px4" style="font-family:Cambria, Cochin, Georgia, Times, Times New Roman, serif;"">
+    <div class="flex flex-wrap justify-center mt4 px4">
         <div class="col-6" style="font-family: 'Poppins', sans-serif; font-size:25px">
             <p>Best family ski resorts</p>
             <p style="font-size:18px">
@@ -29,9 +29,9 @@
         </div>
     </div>
 </div>
-<div class="display-1 text-center pt4 mb4 pb4" style="font-family:Cambria, Cochin, Georgia, Times, Times New Roman, serif;">Resorts in Austria</div>
+<div class="display-1 text-center pt4 mb4 pb4">Resorts in Austria</div>
 
-<form asp-action="Index" style="font-family:Cambria, Cochin, Georgia, Times, Times New Roman, serif;">
+<form asp-action="Index">
     <div class="form-group col-6 mx-auto mb4 flex flex-wrap flex-row">
         <div class="col-8">
             <label for="sort">Sort by: </label>
@@ -49,7 +49,7 @@
     </div>
 </form>
 
-    <div class="row mx-auto mt4" style="width:80%; font-family:Cambria, Cochin, Georgia, Times, Times New Roman, serif;">
+    <div class="row mx-auto mt4" style="width:80%">
         <!-- cards-->
         @foreach (var item in Model)
         {

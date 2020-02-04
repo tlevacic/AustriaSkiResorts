@@ -3,11 +3,33 @@
 
 }
 
-<h2>successfullyOrder</h2>
+<div style="height:75vh;">
+    <div class="pl4 mt4" style="font-size:35px; font-family:Cambria, Cochin, Georgia, Times, Times New Roman, serif;">
+        <h1 style="color:red;">Successfully ordered</h1>
+    </div>
+    <hr style="border:1px solid gray;" />
 
-<h1>Successfully ordered termin</h1>
-<p>Please check your email for more info.</p>
-<p>@ViewData["day"]</p>
-<p>@ViewData["month"]</p>
-<p>@ViewData["year"]</p>
-<p>@ViewData["time"]</p>
+    <div class="flex flex-wrap flex-row" style="font-size:30px; font-family:Cambria, Cochin, Georgia, Times, Times New Roman, serif;">
+        <div class="col-6" style="padding:40px 40px">
+            <p>
+                Thank you for using are service.
+                Please check information once again.
+            </p>
+            <div style="background-color:grey;">
+                <p>Day: @ViewData["day"]</p>
+                <p>Month: @ViewData["month"]</p>
+                <p>Time: @ViewData["year"]</p>
+                <p>Year: @ViewData["time"]</p>
+
+            </div>
+        </div>
+        <div class="col-6" style="padding:40px 40px">
+            <p>You can contact as with: </p>
+            <p style="color:red;">Telephone: 00800 400 200 00*</p>
+            <p style="color:red;">
+                info@austria.info
+            </p>
+            <p>*toll-free; calls from mobile networks may incur charges</p>
+        </div>
+    </div>
+</div>
