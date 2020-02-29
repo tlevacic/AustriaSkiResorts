@@ -1,8 +1,8 @@
 # Ski in Austria
 Simple web app with small database.
-App have possibility to create new, and update data from database.
-All resorts in database is showing on UI, and user have possibility to order termin.
-When the customer orders termin for ski resort, database is updated same as UI.
+App has possibility to create new, and update data from database.
+All resorts in database are showing on UI, and user has possibility to order termin.
+When the customer create order termin for ski resort, database is updated same as UI.
 Technology used: HTML,CSS,C#,LINQ.
 
 Homepage
